@@ -1,0 +1,1 @@
+FAST Api Python app that gets noaa weather data, and visualizes data into various charts, diagrams, graphs, and on an interactive world map
