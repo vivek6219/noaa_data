@@ -1,0 +1,62 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "httpx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "httpx",
+        "description": "httpx",
+        "detail": "httpx",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "routes.routes",
+        "description": "routes.routes",
+        "isExtraImport": true,
+        "detail": "routes.routes",
+        "documentation": {}
+    },
+    {
+        "label": "base_url",
+        "kind": 5,
+        "importPath": "routes.routes",
+        "description": "routes.routes",
+        "peekOfCode": "base_url = \"https://api.weather.gov/\"\nrouter = APIRouter()\n@router.get(\"/glossary\")\nasync def get_glossary():\n    glossary_url = base_url+\"/glossary\"\n    print(glossary_url)\n    async with httpx.AsyncClient() as client:\n        response = await client.get(url=glossary_url)\n        print(response)\n        data = response.json()",
+        "detail": "routes.routes",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "routes.routes",
+        "description": "routes.routes",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/glossary\")\nasync def get_glossary():\n    glossary_url = base_url+\"/glossary\"\n    print(glossary_url)\n    async with httpx.AsyncClient() as client:\n        response = await client.get(url=glossary_url)\n        print(response)\n        data = response.json()\n    return data",
+        "detail": "routes.routes",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI()\napp.include_router(router=router)\n# @app.get(\"/\")\n# def hello():\n#     return {\"Hello\": \"world\"}",
+        "detail": "main",
+        "documentation": {}
+    }
+]
