@@ -20,12 +20,12 @@ async def get_zones():
     async with httpx.AsyncClient() as client:
         response = await client.get(url=zones_url)
         data = response.json()
-        specs = []
-        i = 0
-        for feature in data["features"]:
-            if('office' in feature):
-                specs.append(f"id: {feature['id']} office: {feature['office']}")
-            else:
-                specs.append(f"id: {feature['id']} office: (missing)")
-        print(specs) 
+        for feature in data.get("features",[]):
+            properties = feature.get("properties", {})
+            forecast_offices = properties.get("forecastOffice", [])
+            print(forecast_offices)
+        
+            # for feature in features:
+            #     print(feature)
+       
     return data

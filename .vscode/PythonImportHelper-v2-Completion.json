@@ -26,37 +26,122 @@
     },
     {
         "label": "router",
-        "importPath": "routes.routes",
-        "description": "routes.routes",
+        "importPath": "app.routes.routes",
+        "description": "app.routes.routes",
         "isExtraImport": true,
-        "detail": "routes.routes",
+        "detail": "app.routes.routes",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "TestClient",
+        "importPath": "fastapi.testclient",
+        "description": "fastapi.testclient",
+        "isExtraImport": true,
+        "detail": "fastapi.testclient",
+        "documentation": {}
+    },
+    {
+        "label": "TestClient",
+        "importPath": "fastapi.testclient",
+        "description": "fastapi.testclient",
+        "isExtraImport": true,
+        "detail": "fastapi.testclient",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app.main",
+        "description": "app.main",
+        "isExtraImport": true,
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app.main",
+        "description": "app.main",
+        "isExtraImport": true,
+        "detail": "app.main",
         "documentation": {}
     },
     {
         "label": "base_url",
         "kind": 5,
-        "importPath": "routes.routes",
-        "description": "routes.routes",
+        "importPath": "app.routes.routes",
+        "description": "app.routes.routes",
         "peekOfCode": "base_url = \"https://api.weather.gov/\"\nrouter = APIRouter()\n@router.get(\"/glossary\")\nasync def get_glossary():\n    glossary_url = base_url+\"/glossary\"\n    print(glossary_url)\n    async with httpx.AsyncClient() as client:\n        response = await client.get(url=glossary_url)\n        print(response)\n        data = response.json()",
-        "detail": "routes.routes",
+        "detail": "app.routes.routes",
         "documentation": {}
     },
     {
         "label": "router",
         "kind": 5,
-        "importPath": "routes.routes",
-        "description": "routes.routes",
+        "importPath": "app.routes.routes",
+        "description": "app.routes.routes",
         "peekOfCode": "router = APIRouter()\n@router.get(\"/glossary\")\nasync def get_glossary():\n    glossary_url = base_url+\"/glossary\"\n    print(glossary_url)\n    async with httpx.AsyncClient() as client:\n        response = await client.get(url=glossary_url)\n        print(response)\n        data = response.json()\n    return data",
-        "detail": "routes.routes",
+        "detail": "app.routes.routes",
+        "documentation": {}
+    },
+    {
+        "label": "hello",
+        "kind": 2,
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "def hello():\n    return {\"message\": \"pong\"}",
+        "detail": "app.main",
         "documentation": {}
     },
     {
         "label": "app",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "app = FastAPI()\napp.include_router(router=router)\n# @app.get(\"/\")\n# def hello():\n#     return {\"Hello\": \"world\"}",
-        "detail": "main",
+        "importPath": "app.main",
+        "description": "app.main",
+        "peekOfCode": "app = FastAPI()\napp.include_router(router=router)\n@app.get(\"/ping\")\ndef hello():\n    return {\"message\": \"pong\"}",
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_zones",
+        "kind": 2,
+        "importPath": "tests.routes.test_routes",
+        "description": "tests.routes.test_routes",
+        "peekOfCode": "def test_get_zones():\n    response = client.get(\"/zones\")\n    assert response.status_code == 200\n    data = response.json()\n    assert isinstance(data,dict)",
+        "detail": "tests.routes.test_routes",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "tests.routes.test_routes",
+        "description": "tests.routes.test_routes",
+        "peekOfCode": "client = TestClient(app)\n@patch(\"app.external_module.requests.get\")\ndef test_get_zones():\n    response = client.get(\"/zones\")\n    assert response.status_code == 200\n    data = response.json()\n    assert isinstance(data,dict)",
+        "detail": "tests.routes.test_routes",
+        "documentation": {}
+    },
+    {
+        "label": "test_ping",
+        "kind": 2,
+        "importPath": "tests.test_main",
+        "description": "tests.test_main",
+        "peekOfCode": "def test_ping():\n    response = client.get(\"/ping\")\n    assert response.status_code == 200\n    assert response.json() == {\"message\" : \"pong\"}",
+        "detail": "tests.test_main",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "tests.test_main",
+        "description": "tests.test_main",
+        "peekOfCode": "client = TestClient(app)\ndef test_ping():\n    response = client.get(\"/ping\")\n    assert response.status_code == 200\n    assert response.json() == {\"message\" : \"pong\"}",
+        "detail": "tests.test_main",
         "documentation": {}
     }
 ]
